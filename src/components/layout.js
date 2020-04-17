@@ -70,8 +70,12 @@ export default ({ children, location }) => (
                 height: rhythm(2.5),
               }}
             >
-              <Link
+          {/* <Link
                 style={{
+                  position: `relative`,
+                  bottom: `130%`,
+                  right: `5%`,
+                  fontSize: `80%`,
                   boxShadow: 'none',
                   textDecoration: 'none',
                   color: 'inherit',
@@ -79,7 +83,7 @@ export default ({ children, location }) => (
                 to={'/'}
               >
                 {siteTitle}
-              </Link>
+              </Link>  */}    
             </h1>
           </BackgroundImage>
         )

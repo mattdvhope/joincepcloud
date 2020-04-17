@@ -7,7 +7,9 @@ export default ({ settings }) => (
       display: 'flex',
       marginBottom: rhythm(2.5),
       fontFamily: `Athiti`,
-      fontSize: `110%`
+      fontSize: `110%`,
+      marginTop: `-5%`,
+      marginBottom: `-17%`
     }}
   >
     <img
