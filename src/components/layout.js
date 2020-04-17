@@ -55,6 +55,7 @@ export default ({ children, location }) => (
               height: rhythm(14),
               position: 'relative',
               marginBottom: `${rhythm(1.5)}`,
+              fontFamily: `Athiti`
             }}
           >
             <h1
@@ -167,6 +168,7 @@ export default ({ children, location }) => (
               <strong>Cosmic JS</strong>
             </a>
           </footer>
+          <link href="https://fonts.googleapis.com/css?family=Athiti|Chonburi|Kanit|Maitree|Prompt|Sriracha|Taviraj|Trirong|Josefin+Sans" rel="stylesheet" />
         </div>
       )
     }}

@@ -6,6 +6,8 @@ export default ({ settings }) => (
     style={{
       display: 'flex',
       marginBottom: rhythm(2.5),
+      fontFamily: `Athiti`,
+      fontSize: `110%`
     }}
   >
     <img
