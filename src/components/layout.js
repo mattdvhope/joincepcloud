@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
 import cosmicjsLogo from '../../static/cosmicjs.svg'
 import gatsbyLogo from '../../static/gatsby.png'
 import { rhythm, scale } from '../utils/typography'
+import { logout } from "../utils/auth"
 
 // Import typefaces
 import 'typeface-montserrat'
@@ -174,6 +175,17 @@ export default ({ children, location }) => (
               <strong>Cosmic JS</strong>
             </a>
           </footer>
+          <h2>
+            <a
+              href="/"
+              onClick={event => {
+                event.preventDefault()
+                logout(() => navigate(`/`))
+              }}
+            >
+              Logout
+            </a>
+          </h2>
           <link href="https://fonts.googleapis.com/css?family=Athiti|Chonburi|Kanit|Maitree|Prompt|Sriracha|Taviraj|Trirong|Josefin+Sans" rel="stylesheet" />
         </div>
       )

@@ -7,6 +7,7 @@ import { graphql } from 'gatsby'
 import Bio from '../components/Bio'
 import Layout from '../components/layout'
 import { rhythm } from '../utils/typography'
+import { isLoggedIn } from "../utils/auth"
 
 class BlogIndex extends React.Component {
 
@@ -14,10 +15,6 @@ class BlogIndex extends React.Component {
     e.preventDefault();
     window.localStorage.setItem("Node Slug", slug);
     window.location.replace(this.lineLink(slug));
-  }
-
-  lineLink(slug) {
-    return `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1654045933&redirect_uri=${process.env.GATSBY_API_URL}${slug}&state=${this.makeState(10)}&scope=profile%20openid&max_age=360000&ui_locales=th&bot_prompt=aggressive`
   }
 
   makeState(length) {
@@ -28,6 +25,34 @@ class BlogIndex extends React.Component {
        result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
+  }
+
+  Linkage(title, slug) {
+    return isLoggedIn() ? this.loggedInLink(title, slug) : this.loggedOutLink(title, slug)
+  }
+
+  loggedOutLink(title, slug) {
+    return (
+      <a
+        href={this.lineLink(slug)}
+        onClick={e => this.handleClick(e, slug)}
+        style={{ boxShadow: `none` }}
+      >
+        {title}
+      </a>
+    )
+  }
+
+  lineLink(slug) {
+    return `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1654045933&redirect_uri=${process.env.GATSBY_API_URL}${slug}&state=${this.makeState(10)}&scope=profile%20openid&max_age=360000&ui_locales=th&bot_prompt=aggressive`
+  }
+
+  loggedInLink(title, slug) {
+    return (
+      <Link style={{ boxShadow: 'none' }} to={`posts/${slug}`}>
+        {title}
+      </Link>
+    )
   }
 
   render() {
@@ -52,12 +77,7 @@ class BlogIndex extends React.Component {
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <a
-                  href={this.lineLink(node.slug)}
-                  onClick={e => this.handleClick(e, node.slug)}
-                >
-                  {title}
-                </a>
+              {this.Linkage(title, node.slug)}
               </h3>
               <small>{node.created}</small>
               <p

@@ -4,7 +4,7 @@ import { Link, navigate } from 'gatsby'
 import get from 'lodash/get'
 import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-import { isLoggedIn } from "../utils/auth"
+import { handleLogin, isLoggedIn, getUser } from "../utils/auth"
 
 import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
@@ -20,10 +20,12 @@ class BlogPostTemplate extends React.Component {
   }
 
   async componentDidMount() {
-    if (this.state.person === undefined) {
+    const code_in_url = window.location.search.match(/(?<=code=)(.*)(?=&state)/)
+    const code = code_in_url ? code_in_url[0] : null
+    
+    if (!isLoggedIn() && code) {
       // 1. getting id_token
       const slug = window.localStorage.getItem("Node Slug");
-      const code = window.location.search.match(/(?<=code=)(.*)(?=&state)/)[0]
       const params = `grant_type=authorization_code&code=${code}&redirect_uri=${process.env.GATSBY_API_URL}${slug}&client_id=1654045933&client_secret=fada8f346cb8e9092ad92d7ff4b10675`;
       const response = await fetch(`https://api.line.me/oauth2/v2.1/token`, {
         method: 'POST',
@@ -39,6 +41,7 @@ class BlogPostTemplate extends React.Component {
         body: `id_token=${json.id_token}&client_id=1654045933`
       });
       const person = await personal_data.json()
+      handleLogin(person)
 
       // 3. personal data from LINE login
       this.setState({ window: window, person: person, id_token: json.id_token });
@@ -61,7 +64,9 @@ class BlogPostTemplate extends React.Component {
 
       //   return JSON.parse(jsonPayload);
       // };
-    } // if...
+    } else {
+      this.setState({ window: window, person: getUser() })
+    }
   } // async componentDidMount()
 
   render() {
@@ -160,18 +165,15 @@ class BlogPostTemplate extends React.Component {
     if (!this.state.window) {
       console.log("not yet rendering blog page!!!!");
       return (<span></span>)
-    } else {
-      const person = this.state.person
-      console.log(person);
-      return blog_post_page;
-
-      // if (person && localStorage.getItem("Node Slug")) {
-      //   return blog_post_page;
-      // } else {
-      //   navigate(`/`)
-      //   alert("You're not logged in yet!!!!");
-      //   return null
-      // }
+    } 
+    else {
+      if (isLoggedIn()) {
+        return blog_post_page;
+      } else {
+        navigate(`/`)
+        alert("You're not logged in yet!!!!");
+        return null
+      }
     }
   } // render()
 }
