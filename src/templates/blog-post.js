@@ -23,6 +23,8 @@ class BlogPostTemplate extends React.Component {
     const code_in_url = window.location.search.match(/(?<=code=)(.*)(?=&state)/)
     const code = code_in_url ? code_in_url[0] : null
     
+console.log(code);
+
     if (!isLoggedIn() && code) {
       // 1. getting id_token
       const slug = window.localStorage.getItem("Node Slug");
