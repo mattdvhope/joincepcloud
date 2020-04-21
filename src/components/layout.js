@@ -52,13 +52,13 @@ export default ({ children, location }) => (
             fluid={homgePageHero}
             backgroundColor={`#007ACC`}
             style={{
-              height: rhythm(14),
+              height: rhythm(10),
               position: 'relative',
               marginBottom: `${rhythm(1.5)}`,
               fontFamily: `Athiti`
             }}
           >
-            <h1
+        {/* <h1
               style={{
                 ...scale(1.3),
                 position: 'absolute',
@@ -70,7 +70,7 @@ export default ({ children, location }) => (
                 height: rhythm(2.5),
               }}
             >
-          {/* <Link
+              <Link
                 style={{
                   position: `relative`,
                   bottom: `130%`,
@@ -83,13 +83,14 @@ export default ({ children, location }) => (
                 to={'/'}
               >
                 {siteTitle}
-              </Link>  */}    
-            </h1>
+              </Link>
+            </h1>   */}
           </BackgroundImage>
         )
       } else {
         header = (
-          <h3
+          <span>
+      {/* <h3
             style={{
               fontFamily: 'Montserrat, sans-serif',
               marginTop: 0,
@@ -100,7 +101,7 @@ export default ({ children, location }) => (
               paddingTop: `${rhythm(1.5)}`,
             }}
           >
-            <Link
+          <Link
               style={{
                 boxShadow: 'none',
                 textDecoration: 'none',
@@ -110,7 +111,8 @@ export default ({ children, location }) => (
             >
               {siteTitle}
             </Link>
-          </h3>
+          </h3> */}
+          </span>
         )
       }
       return (

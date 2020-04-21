@@ -5,11 +5,9 @@ export default ({ settings }) => (
   <div
     style={{
       display: 'flex',
-      marginBottom: rhythm(2.5),
+      marginTop: rhythm(-0.7),
+      marginBottom: rhythm(-2.2),
       fontFamily: `Athiti`,
-      fontSize: `110%`,
-      marginTop: `-5%`,
-      marginBottom: `-17%`
     }}
   >
     <img

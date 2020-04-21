@@ -9,6 +9,27 @@ import Layout from '../components/layout'
 import { rhythm } from '../utils/typography'
 
 class BlogIndex extends React.Component {
+
+  handleClick(e, slug) {
+    e.preventDefault();
+    window.localStorage.setItem("Node Slug", slug);
+    window.location.replace(this.lineLink(slug));
+  }
+
+  lineLink(slug) {
+    return `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1654045933&redirect_uri=${process.env.GATSBY_API_URL}${slug}&state=${this.makeState(10)}&scope=profile%20openid&max_age=360000&ui_locales=th&bot_prompt=aggressive`
+  }
+
+  makeState(length) {
+    let result           = '';
+    let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
   render() {
     const siteTitle = get(
       this,
@@ -21,7 +42,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={location}>
         <Helmet title={siteTitle} />
-        <Bio settings={author} />
+    {/* <Bio settings={author} /> */}
         {posts.map(({ node }) => {
           const title = get(node, 'title') || node.slug
           return (
@@ -31,9 +52,12 @@ class BlogIndex extends React.Component {
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <Link style={{ boxShadow: 'none' }} to={`posts/${node.slug}`}>
+                <a
+                  href={this.lineLink(node.slug)}
+                  onClick={e => this.handleClick(e, node.slug)}
+                >
                   {title}
-                </Link>
+                </a>
               </h3>
               <small>{node.created}</small>
               <p
