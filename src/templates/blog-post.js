@@ -21,8 +21,9 @@ class BlogPostTemplate extends React.Component {
 
 // change REGEX for other than Chrome!!!
   async componentDidMount() {
-    const code_in_url = window.location.search.match(/(?<=code=)(.*)(?=&state)/)
-    const code = code_in_url ? code_in_url[0] : null
+    // const url_with_code = window.location.search.match(/(?<=code=)(.*)(?=&state)/)
+    const url_with_code = window.location.search.match(/(code=)(.*)(?=&state)/)
+    const code = url_with_code ? url_with_code[2] : null
     
 console.log(code);
 
