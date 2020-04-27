@@ -52,7 +52,7 @@ export default ({ post, siteTitle, previous, next }) => (
 	  />
 
 	  <h2>
-	  	<a href="/CityTalk1.pdf" download>
+	  	<a href="/city-talk-1.pdf" download="City Talk 1" target="_blank">
 	  		Download link
 	  	</a>
 	  </h2>
