@@ -67,7 +67,29 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={location}>
         <Helmet title={siteTitle} />
-        <h3 style={{ fontFamily: `Athiti` }} >“เพื่อนๆ สามารถเข้าร่วมเป็นส่วนหนึ่งของครอบครัวเรียนภาษาอังกฤษ CEP ผ่านทางลิงค์แอพพลิเคชั่น Line ด้านล่างได้เลยค่ะ 😊”</h3>
+        <div 
+          style={{ 
+            position: `absolute`,
+            marginTop: `5px`,
+            width: `50px`,
+            height: `30px`,
+          }}
+        >
+          <img 
+            src="/btn_press.png"
+            alt="LINE"
+            style={{
+              width: `100%`,
+              height: `auto`,
+            }}
+          />
+        </div>
+        <h3 style={{
+          fontFamily: `Athiti`,
+          marginLeft: `60px`
+        }} >
+          “เพื่อนๆ สามารถเข้าร่วมเป็นส่วนหนึ่งของครอบครัวเรียนภาษาอังกฤษ CEP ผ่านทางลิงค์แอพพลิเคชั่น Line ด้านล่างได้เลยค่ะ 😊”
+        </h3>
     {/* <Bio settings={author} /> */}
         {posts.map(({ node }) => {
           const title = get(node, 'title') || node.slug
@@ -80,6 +102,7 @@ class BlogIndex extends React.Component {
               >
               {this.Linkage(title, node.slug)}
               </h3>
+
           {/* <small>{node.created}</small>  */}
               <p
                 dangerouslySetInnerHTML={{ __html: node.metadata.description }}
