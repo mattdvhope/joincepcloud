@@ -46,16 +46,13 @@ export default ({ post, siteTitle, previous, next }) => (
 	    fluid={post.metadata.hero.local.childImageSharp.fluid}
 	    backgroundColor={`#007ACC`}
 	    style={{
-	      marginBottom: rhythm(0.6),
-	      height: rhythm(8),
+	      margin: `auto`,
+	      marginBottom: `5%`,
+	      height: rhythm(10),
+	      width: rhythm(8),
+
 	    }}
 	  />
-
-	  <h2>
-	  	<a href="/city-talk-1.pdf" download="City Talk 1" target="_blank">
-	  		Download link
-	  	</a>
-	  </h2>
 
 	  <div
 	    className="post-content"
@@ -92,5 +89,6 @@ export default ({ post, siteTitle, previous, next }) => (
 	      </li>
 	    )}
 	  </ul>
+
 	</>
 )
