@@ -106,6 +106,7 @@ class BlogIndex extends React.Component {
           {/* <small>{node.created}</small>  */}
               <p
                 dangerouslySetInnerHTML={{ __html: node.metadata.description }}
+                style={{ fontSize: `130%` }}
               />
             </div>
           )
