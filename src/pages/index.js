@@ -36,7 +36,7 @@ class BlogIndex extends React.Component {
       <a
         href={this.lineLink(slug)}
         onClick={e => this.handleClick(e, slug)}
-        style={{ boxShadow: `none` }}
+        style={{ boxShadow: `none`, fontFamily: `Athiti` }}
       >
         {title}
       </a>
@@ -49,7 +49,7 @@ class BlogIndex extends React.Component {
 
   loggedInLink(title, slug) {
     return (
-      <Link style={{ boxShadow: 'none' }} to={`posts/${slug}`}>
+      <Link style={{ boxShadow: 'none', fontFamily: `Athiti` }} to={`posts/${slug}`}>
         {title}
       </Link>
     )
@@ -67,7 +67,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={location}>
         <Helmet title={siteTitle} />
-        <h3>เมื่อคุณคลิกที่ลิงค์เหล่านี้เราก็จะเชิญคุณเป็นเพื่อนกับ CEP ในแอพ LINE นะครับ</h3>
+        <h3 style={{ fontFamily: `Athiti` }} >“เพื่อนๆ สามารถเข้าร่วมเป็นส่วนหนึ่งของครอบครัวเรียนภาษาอังกฤษ CEP ผ่านทางลิงค์แอพพลิเคชั่น Line ด้านล่างได้เลยค่ะ 😊”</h3>
     {/* <Bio settings={author} /> */}
         {posts.map(({ node }) => {
           const title = get(node, 'title') || node.slug

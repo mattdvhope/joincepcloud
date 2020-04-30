@@ -36,6 +36,7 @@ export default ({ post, siteTitle, previous, next }) => (
 	  <h1
 	    style={{
 	      marginTop: rhythm(1),
+	      fontFamily: `Athiti`,
 	    }}
 	  >
 	    {post.title}
@@ -89,6 +90,13 @@ export default ({ post, siteTitle, previous, next }) => (
 	      </li>
 	    )}
 	  </ul>
+	  <div
+	    style={{
+	      marginTop: rhythm(1.4),
+	    }}
+	  >
+	    <Link to="/">← กลับไปที่หน้าแรก</Link>
+	  </div>
 
 	</>
 )
