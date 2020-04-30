@@ -67,7 +67,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={location}>
         <Helmet title={siteTitle} />
-        <h3>เมื่อคุณคลิกที่ลิงค์นี้เราก็จะเชิญคุณเป็นเพื่อนกับ CEP ในแอพ LINE</h3>
+        <h3>เมื่อคุณคลิกที่ลิงค์เหล่านี้เราก็จะเชิญคุณเป็นเพื่อนกับ CEP ในแอพ LINE นะครับ</h3>
     {/* <Bio settings={author} /> */}
         {posts.map(({ node }) => {
           const title = get(node, 'title') || node.slug
