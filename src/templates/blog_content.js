@@ -31,7 +31,7 @@ export default ({ post, siteTitle, previous, next }) => (
 	      marginTop: rhythm(1.4),
 	    }}
 	  >
-	    <Link to="/">← Back to Posts</Link>
+	    <Link to="/">← กลับไปที่หน้าแรก</Link>
 	  </div>
 	  <h1
 	    style={{
