@@ -62,7 +62,7 @@ class BlogPostTemplate extends React.Component {
       this.props,
       'data.cosmicjsSettings.metadata.site_title'
     )
-    const author = get(this, 'props.data.cosmicjsSettings.metadata')
+    const infor = get(this, 'props.data.cosmicjsSettings.metadata')
     const location = get(this, 'props.location')
     const { previous, next } = this.props.pageContext
     const blog_post_page = (
@@ -116,9 +116,14 @@ export const pageQuery = graphql`
     cosmicjsSettings(slug: { eq: "general" }) {
       metadata {
         site_title
-        author_name
-        author_bio
-        author_avatar {
+        infor_name_1
+        infor_1
+        infor_avatar_1 {
+          imgix_url
+        }
+        infor_name_2
+        infor_2
+        infor_avatar_2 {
           imgix_url
         }
       }

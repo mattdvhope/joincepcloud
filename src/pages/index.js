@@ -4,7 +4,8 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import Bio from '../components/Bio'
+import Infor1 from '../components/Infor1'
+import Infor2 from '../components/Infor2'
 import Layout from '../components/layout'
 import { rhythm } from '../utils/typography'
 import { isLoggedIn } from "../utils/auth"
@@ -60,41 +61,15 @@ class BlogIndex extends React.Component {
       this,
       'props.data.cosmicjsSettings.metadata.site_title'
     )
-    const description = get(
-      this,
-      'props.data.cosmicjsSettings.metadata.site_description'
-    )
     const posts = get(this, 'props.data.allCosmicjsPosts.edges')
-    const author = get(this, 'props.data.cosmicjsSettings.metadata')
+    const infor = get(this, 'props.data.cosmicjsSettings.metadata')
     const location = get(this, 'props.location')
-
+console.log("infor: ", infor);
     return (
       <Layout location={location}>
         <Helmet title={siteTitle} />
-        <div 
-          style={{ 
-            position: `absolute`,
-            marginTop: `5px`,
-            width: `50px`,
-            height: `30px`,
-          }}
-        >
-          <img 
-            src="/btn_press.png"
-            alt="LINE"
-            style={{
-              width: `100%`,
-              height: `auto`,
-            }}
-          />
-        </div>
-        <h3 style={{
-          fontFamily: `Athiti`,
-          marginLeft: `60px`
-        }} >
-          {description}
-        </h3>
-    {/* <Bio settings={author} /> */}
+        <Infor1 settings={infor} />
+        <Infor2 settings={infor} />
         {posts.map(({ node }) => {
           const title = get(node, 'title') || node.slug
           return (
@@ -139,10 +114,14 @@ export const pageQuery = graphql`
     cosmicjsSettings(slug: { eq: "general" }) {
       metadata {
         site_title
-        site_description
-        author_name
-        author_bio
-        author_avatar {
+        infor_name_1
+        infor_1
+        infor_avatar_1 {
+          imgix_url
+        }
+        infor_name_2
+        infor_2
+        infor_avatar_2 {
           imgix_url
         }
       }
