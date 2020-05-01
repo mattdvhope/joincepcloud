@@ -56,9 +56,20 @@ class BlogIndex extends React.Component {
   }
 
   render() {
+    console.log("DESCRIPTION: ",
+      get(
+        this,
+        'props.data.cosmicjsSettings.metadata.site_description'
+      )
+    )
+
     const siteTitle = get(
       this,
       'props.data.cosmicjsSettings.metadata.site_title'
+    )
+    const description = get(
+      this,
+      'props.data.cosmicjsSettings.metadata.site_description'
     )
     const posts = get(this, 'props.data.allCosmicjsPosts.edges')
     const author = get(this, 'props.data.cosmicjsSettings.metadata')
@@ -88,7 +99,7 @@ class BlogIndex extends React.Component {
           fontFamily: `Athiti`,
           marginLeft: `60px`
         }} >
-          “เพื่อนๆ สามารถเข้าร่วมเป็นส่วนหนึ่งของครอบครัวเรียนภาษาอังกฤษ CEP ผ่านทางลิงค์แอพพลิเคชั่น Line ด้านล่างได้เลยค่ะ 😊”
+          {description}
         </h3>
     {/* <Bio settings={author} /> */}
         {posts.map(({ node }) => {
@@ -135,6 +146,7 @@ export const pageQuery = graphql`
     cosmicjsSettings(slug: { eq: "general" }) {
       metadata {
         site_title
+        site_description
         author_name
         author_bio
         author_avatar {
