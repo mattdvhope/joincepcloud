@@ -56,13 +56,6 @@ class BlogIndex extends React.Component {
   }
 
   render() {
-    console.log("DESCRIPTION: ",
-      get(
-        this,
-        'props.data.cosmicjsSettings.metadata.site_description'
-      )
-    )
-
     const siteTitle = get(
       this,
       'props.data.cosmicjsSettings.metadata.site_title'
