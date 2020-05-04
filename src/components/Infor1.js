@@ -6,7 +6,7 @@ export default ({ settings }) => (
     srcImg={settings.infor_avatar_1.imgix_url}
     altName={settings.infor_name_1}
     setHTML={settings.infor_1}
-    top={0.7}
+    top={0.9}
     bottom={-0.8}
     imgTop={0}
   />
