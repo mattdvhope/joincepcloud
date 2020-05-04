@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, navigate } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
-import BackgroundStyled from './BackgroundStyled'
+import HomeImage from './HomeImage'
 
 import cosmicjsLogo from '../../static/cosmicjs.svg'
 import gatsbyLogo from '../../static/gatsby.png'
@@ -47,34 +47,11 @@ export default ({ children, location }) => (
 
       if (location.pathname === rootPath || location.pathname === postsPath) {
         header = (
-          <BackgroundStyled homgePageHero={homgePageHero} />
+          <HomeImage />
         )
       } else {
         header = (
-          <span>
-      {/* <h3
-            style={{
-              fontFamily: 'Montserrat, sans-serif',
-              marginTop: 0,
-              marginBottom: rhythm(-1),
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              maxWidth: rhythm(24),
-              paddingTop: `${rhythm(1.5)}`,
-            }}
-          >
-          <Link
-              style={{
-                boxShadow: 'none',
-                textDecoration: 'none',
-                color: 'inherit',
-              }}
-              to={'/'}
-            >
-              {siteTitle}
-            </Link>
-          </h3> */}
-          </span>
+          <span />
         )
       }
       return (
