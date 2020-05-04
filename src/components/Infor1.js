@@ -5,7 +5,7 @@ export default ({ settings }) => (
   <div
     style={{
       display: 'flex',
-      marginTop: rhythm(-0.8),
+      marginTop: rhythm(0.4),
       marginBottom: rhythm(-0.8),
       fontFamily: `Athiti`,
     }}
