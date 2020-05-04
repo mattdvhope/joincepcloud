@@ -64,7 +64,6 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allCosmicjsPosts.edges')
     const infor = get(this, 'props.data.cosmicjsSettings.metadata')
     const location = get(this, 'props.location')
-console.log("infor: ", infor);
     return (
       <Layout location={location}>
         <Helmet title={siteTitle} />
