@@ -16,8 +16,7 @@ export default class BackgroundStyled extends React.Component {
 
   render() {
 		let highness;
-
-console.log(mikayla);
+		const img_url = `https://cep-pictures.s3-ap-southeast-1.amazonaws.com/mikayla.jpeg`;
 
     if (this.state.window) {
 
@@ -41,7 +40,7 @@ console.log(mikayla);
     	return (
 				<div
 	        style={{
-	        	backgroundImage: `url(${mikayla})`,
+	        	backgroundImage: `url(${img_url})`,
 						height: `${highness}vh`,
 						backgroundPosition: `center`,
 						backgroundRepeat: `no-repeat`,
