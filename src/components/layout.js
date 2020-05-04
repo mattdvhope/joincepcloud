@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, navigate } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
-// import BackgroundImage from 'gatsby-background-image'
 import BackgroundStyled from './BackgroundStyled'
 
 import cosmicjsLogo from '../../static/cosmicjs.svg'
