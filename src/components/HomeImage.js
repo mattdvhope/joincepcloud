@@ -1,5 +1,4 @@
 import React from "react";
-import mikayla from '../images/mikayla.jpeg'
 import { rhythm, scale } from '../utils/typography'
 
 export default class BackgroundStyled extends React.Component {
