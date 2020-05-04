@@ -51,7 +51,6 @@ export default ({ post, siteTitle, previous, next }) => (
 	      marginBottom: `5%`,
 	      height: rhythm(10),
 	      width: rhythm(8),
-
 	    }}
 	  />
 
