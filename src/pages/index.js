@@ -66,7 +66,9 @@ class BlogIndex extends React.Component {
     const location = get(this, 'props.location')
     return (
       <Layout location={location}>
-        <Helmet title={siteTitle} />
+        <Helmet title={siteTitle}>
+          <meta property="og:image" content="https://cep-pictures.s3-ap-southeast-1.amazonaws.com/mikayla.jpeg" />
+        </Helmet>
         <Infor1 settings={infor} />
         <Infor2 settings={infor} />
         {posts.map(({ node }) => {
