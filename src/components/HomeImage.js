@@ -16,8 +16,6 @@ export default class BackgroundStyled extends React.Component {
 
   render() {
 		let highness;
-		// const img_url = `https://cep-pictures.s3-ap-southeast-1.amazonaws.com/mikayla.jpeg`;
-
     if (this.state.window) {
 
 			const inner = window.innerWidth;
@@ -38,17 +36,6 @@ export default class BackgroundStyled extends React.Component {
 			}
 
     	return (
-        <>
-		{/* <div
-	        style={{
-	        	backgroundImage: `url(${img_url})`,
-						height: `${highness}vh`,
-						backgroundPosition: `center`,
-						backgroundRepeat: `no-repeat`,
-						backgroundSize: `cover`,
-					}}
-				/>  */}
-
         <BackgroundImage
           Tag="div"
           className="post-hero"
@@ -60,8 +47,6 @@ export default class BackgroundStyled extends React.Component {
             fontFamily: `Athiti`
           }}
         />
-        </>
-
   		)
 		} else {
       return <span />
