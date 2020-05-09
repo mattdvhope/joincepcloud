@@ -49,7 +49,7 @@ export default ({ children, location }) => (
 
       if (location.pathname === rootPath || location.pathname === postsPath) {
         header = (
-          <HomeImage />
+          <HomeImage homgePageHero={homgePageHero} />
         )
       } else {
         header = (

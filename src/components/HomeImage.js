@@ -1,4 +1,5 @@
 import React from "react";
+import BackgroundImage from 'gatsby-background-image'
 import { rhythm, scale } from '../utils/typography'
 
 export default class BackgroundStyled extends React.Component {
@@ -15,7 +16,7 @@ export default class BackgroundStyled extends React.Component {
 
   render() {
 		let highness;
-		const img_url = `https://cep-pictures.s3-ap-southeast-1.amazonaws.com/mikayla.jpeg`;
+		// const img_url = `https://cep-pictures.s3-ap-southeast-1.amazonaws.com/mikayla.jpeg`;
 
     if (this.state.window) {
 
@@ -37,7 +38,8 @@ export default class BackgroundStyled extends React.Component {
 			}
 
     	return (
-				<div
+        <>
+		{/* <div
 	        style={{
 	        	backgroundImage: `url(${img_url})`,
 						height: `${highness}vh`,
@@ -45,7 +47,21 @@ export default class BackgroundStyled extends React.Component {
 						backgroundRepeat: `no-repeat`,
 						backgroundSize: `cover`,
 					}}
-				/>
+				/>  */}
+
+        <BackgroundImage
+          Tag="div"
+          className="post-hero"
+          fluid={this.props.homgePageHero}
+          backgroundColor={`#8BC34A`}
+          style={{
+            height: `${highness}vh`,
+            position: 'relative',
+            fontFamily: `Athiti`
+          }}
+        />
+        </>
+
   		)
 		} else {
       return <span />
