@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import AWS from 'aws-sdk';
 import Layout from '../components/layout'
-import photo from '../../static/asianTeam.jpg'
 
 export default class Upload extends React.Component {
 	constructor() {
