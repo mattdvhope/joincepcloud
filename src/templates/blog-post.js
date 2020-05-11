@@ -58,6 +58,7 @@ class BlogPostTemplate extends React.Component {
 
   render() {
     const post = this.props.data.cosmicjsPosts
+    const date = post.metadata.class_date
     const siteTitle = get(
       this.props,
       'data.cosmicjsSettings.metadata.site_title'
@@ -69,6 +70,7 @@ class BlogPostTemplate extends React.Component {
       <Layout location={location}>
         <BlogContent
           post={post}
+          date={date}
           siteTitle={siteTitle}
           previous={previous}
           next={next}
@@ -100,8 +102,8 @@ export const pageQuery = graphql`
       id
       content
       title
-      created(formatString: "MMMM DD, YYYY")
       metadata {
+        class_date
         hero {
           local {
             childImageSharp {
