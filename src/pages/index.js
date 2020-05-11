@@ -7,7 +7,7 @@ import { graphql } from 'gatsby'
 import Infor1 from '../components/Infor1'
 import Infor2 from '../components/Infor2'
 import Layout from '../components/layout'
-import { rhythm } from '../utils/typography'
+import { rhythm, scale } from '../utils/typography'
 import { isLoggedIn } from "../utils/auth"
 
 class BlogIndex extends React.Component {
@@ -56,12 +56,29 @@ class BlogIndex extends React.Component {
     )
   }
 
+  numberPosts(posts) {
+    return posts.map((post) => {
+      const date = new Date(post.node.metadata.class_date)
+      post.num = date.getTime()
+    });
+  }
+
+  formatDate(date) {
+    const formatted = new Date(date)
+    const day = formatted.getDate();
+    const month = formatted.getMonth() + 1;
+    const year = formatted.getFullYear()
+    return "วันที่เริ่มต้น - " + day + "/" + month + "/" + year;
+  }
+
   render() {
     const siteTitle = get(
       this,
       'props.data.cosmicjsSettings.metadata.site_title'
     )
     const posts = get(this, 'props.data.allCosmicjsPosts.edges')
+    this.numberPosts(posts);
+    posts.sort((a, b) => b.num - a.num);
     const infor = get(this, 'props.data.cosmicjsSettings.metadata')
     const location = get(this, 'props.location')
     return (
@@ -82,8 +99,16 @@ class BlogIndex extends React.Component {
               >
               {this.Linkage(title, node.slug)}
               </h3>
-
-          {/* <small>{node.created}</small>  */}
+              <p
+                style={{
+                  ...scale(-1 / 5),
+                  display: 'block',
+                  marginBottom: rhythm(0.4),
+                  marginTop: rhythm(-0.6),
+                }}
+              >
+              </p>
+              <small>{this.formatDate(node.metadata.class_date)}</small>
               <p
                 dangerouslySetInnerHTML={{ __html: node.metadata.description }}
                 style={{ fontSize: `130%` }}
@@ -105,10 +130,10 @@ export const pageQuery = graphql`
         node {
           metadata {
             description
+            class_date
           }
           slug
           title
-          created(formatString: "DD MMMM, YYYY")
         }
       }
     }
