@@ -45,7 +45,7 @@ class BlogIndex extends React.Component {
   }
 
   lineLink(slug) {
-    return `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1654045933&redirect_uri=${process.env.GATSBY_API_URL}${slug}&state=${this.makeState(10)}&scope=profile%20openid&max_age=360000&ui_locales=th&bot_prompt=aggressive`
+    return `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${process.env.GATSBY_LINE_CLIENT_ID}&redirect_uri=${process.env.GATSBY_API_URL}${slug}&state=${this.makeState(10)}&scope=profile%20openid&max_age=360000&ui_locales=th&bot_prompt=aggressive`
   }
 
   loggedInLink(title, slug) {
@@ -83,10 +83,7 @@ class BlogIndex extends React.Component {
     const location = get(this, 'props.location')
     return (
       <Layout location={location}>
-        <Helmet title={siteTitle}>
-          <meta property="og:image" content="https://cep-pictures.s3-ap-southeast-1.amazonaws.com/mikayla.jpeg" />
-        </Helmet>
-        <Infor1 settings={infor} />
+    {/* <Infor1 settings={infor} /> */} {/* this is for the ZOOM link */}
         <Infor2 settings={infor} />
         {posts.map(({ node }) => {
           const title = get(node, 'title') || node.slug
