@@ -83,7 +83,7 @@ class BlogIndex extends React.Component {
     const location = get(this, 'props.location')
     return (
       <Layout location={location}>
-    {/* <Infor1 settings={infor} /> */} {/* this is for the ZOOM link */}
+    {/* <Infor1 settings={infor} /> */} {/* this is for the ZOOM icon */}
         <Infor2 settings={infor} />
         {posts.map(({ node }) => {
           const title = get(node, 'title') || node.slug
