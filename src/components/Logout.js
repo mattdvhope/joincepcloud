@@ -1,19 +1,23 @@
 import React from "react"
 import { Link, navigate } from "gatsby"
-import { logout } from "../utils/auth"
+import { logout, isLoggedIn } from "../utils/auth"
 
-export default () => (
+export default () => {
 
-	<h2>
-		<a
-	    href="/"
-	    onClick={event => {
-	      event.preventDefault()
-	      logout(() => navigate(`/`))
-	    }}
-	  >
-	    Logout
-	  </a>
-	</h2>
-
-)
+  if (isLoggedIn()) {
+		return (
+		<h2 style={{ marginLeft: `0.6em` }}>
+			<a
+		    href="/"
+		    onClick={event => {
+		      event.preventDefault()
+		      logout(() => navigate(`/`))
+		    }}
+		  >
+		    Logout
+		  </a>
+		</h2>)
+  } else {
+    return <span/>;
+	}
+}
