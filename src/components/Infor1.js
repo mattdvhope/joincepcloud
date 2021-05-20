@@ -1,6 +1,8 @@
 import React from 'react'
 import Infor from './Infor'
 
+// this is for the ZOOM link
+
 export default ({ settings }) => (
   <Infor
     top={0.9}
