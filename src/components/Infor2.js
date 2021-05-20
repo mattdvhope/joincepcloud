@@ -1,6 +1,8 @@
 import React from 'react'
 import Infor from './Infor'
 
+// This is for LINE icon
+
 export default ({ settings }) => (
   <Infor
     top={0.4}
