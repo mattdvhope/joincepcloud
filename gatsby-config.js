@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const { COSMIC_BUCKET, COSMIC_READ_KEY } = process.env;
+
 module.exports = {
   plugins: [
     `gatsby-plugin-offline`,
