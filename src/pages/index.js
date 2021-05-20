@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import Infor1 from '../components/Infor1'
+// import Infor1 from '../components/Infor1'
 import Infor2 from '../components/Infor2'
 import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
