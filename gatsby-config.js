@@ -20,10 +20,10 @@ module.exports = {
     {
       resolve: 'gatsby-source-cosmicjs',
       options: {
-        bucketSlug: `joincepcloud`, // process.env.COSMIC_BUCKET,
+        bucketSlug: COSMIC_BUCKET,
         objectTypes: ['posts','settings'],
         apiAccess: {
-          read_key: `RruOD0tvhX00wFRkpO6ITsHCOoAxw7XdCLLqUGl6rOnirvYKyb` //process.env.COSMIC_READ_KEY,
+          read_key: COSMIC_READ_KEY
         },
         localMedia: true
       }
